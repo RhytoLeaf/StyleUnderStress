@@ -2,33 +2,64 @@ var answeredTrue = [];
 var answeredFalse = [];
 var currentQuestion = 0;
 
-function startQuiz(){
-    document.getElementById("begin-button").style.display = "none";
-    document.getElementById("true-button").style.display = "block";
-    document.getElementById("false-button").style.display = "block";
+function startQuiz() {
+  document.getElementById("begin-button").style.display = "none";
+  document.getElementById("true-button").style.display = "block";
+  document.getElementById("false-button").style.display = "block";
 
+  //progress bar style style="width: 100%"
 
+  //first question
+  setQuestionText();
+}
+
+function setAnsweredTrueText() {
+  document.getElementById("answered-true").innerHTML = answeredTrue.toString();
+
+  
 }
 
 function setQuestionText() {
-    currentQuestion++;
-    document.getElementById("question-text").innerHTML = questions[currentQuestion-1];
+  currentQuestion++;
 
+  //update quiz progress bar
+  document.getElementById("quiz-progress").style.width = (currentQuestion/34)*100+'%';
+
+
+  if (currentQuestion > 34) {
+    endQuiz();
+  } else {
+    setAnsweredTrueText();
+    document.getElementById("question-text").innerHTML =
+      "Q" + currentQuestion + "\n" + questions[currentQuestion - 1];
+  }
 }
 
-
-// 
+//
 function pressTrue() {
   answeredTrue.push(currentQuestion);
+
+  //Checkbox marked
+  document.getElementById("Q"+currentQuestion+"-answer").checked = true;
+
+  setQuestionText();
 }
 
 function pressFalse() {
+  setQuestionText();
+}
 
+function endQuiz() {
+  document.getElementById("question-text").innerHTML = "End of quiz";
+  document.getElementById("begin-button").style.display = "none";
+  document.getElementById("true-button").style.display = "none";
+  document.getElementById("false-button").style.display = "none";
 }
 
 
-
-var = [];
+function showResults() {
+  document.getElementById("results-panel").style.display = "none";
+}
 
 const questions = [
   "At times I avoid situations that might bring me into contact with people I'm having problems with.",
@@ -63,5 +94,69 @@ const questions = [
   "When others hesitate to share their views, I do whatever I can to make it safe for them to speak honestly.",
   "Sometimes I have to discuss things I thought had been settled because I don't keep track of what was discussed before.",
   "I find myself in situations where people get their feelings hurt because they thought they would have more of a say in final decisions than they end uphaving.",
-  "I get frustrated sometimes at how long it takes some groups to make decisions because too many people are involved."
+  "I get frustrated sometimes at how long it takes some groups to make decisions because too many people are involved.",
 ];
+
+//questions stored in static vars
+//let Q1;
+
+/*
+<h1>Silence</h1>
+<h2>Masking</h2>
+<p>5, 6</p>
+ <p id='sp#'> ___%</p>
+
+<h2>Avoiding</h2>
+<p>3, 4</p>
+ <p id='sp#'> ___%</p>
+
+<h2>Withdrawing</h2>
+<p>1, 2</p>
+ <p id='sp#'> ___%</p>
+
+<h2>Start with Heart</h2>
+<p>13, 19, 25</p>
+ <p id='sp#'> ___%</p>
+
+<h2>Learn to Look</h2>
+<p>14, 20, 26</p>
+ <p id='sp#'> ___%</p>
+
+<h2>Make it safe</h2>
+<p>15, 21, 27</p>
+ <p id='sp#'> ___%</p>
+
+<h2>Master Stories</h2>
+<p>16, 22, 28</p>
+ <p id='sp#'> ___%</p>
+
+<br><br>
+
+
+
+<h1>Violence</h1>
+
+<h2>Controlling</h2>
+<p>7, 8</p>
+ <p id='vp#'> ___%</p>
+<h2>Labeling</h2>
+<p>9, 10</p>
+
+<h2>Attacking</h2>
+<p>11, 12</p>  
+ <p id='vp#'> ___%</p>
+
+<h2>STATE my Path</h2>
+<p>17, 23, 29</p>
+ <p id='vp#'> ___%</p>
+
+<h2>Explore Others' Paths</h2>
+<p>18, 24, 30</p>
+ <p id='vp#'> ___%</p>
+
+<h2>Move to Action</h2>
+<p>31, 32, 33</p>
+ <p id='vp#'> ___%</p>
+ 
+</div>
+*/

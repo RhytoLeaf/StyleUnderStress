@@ -1,17 +1,435 @@
+<!--  -->
 <head>
+  <!--  -->
   <link rel="stylesheet" href="./styles.css" />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+    crossorigin="anonymous"
+  />
 </head>
 
 <body>
   <h1>Style Under Stress</h1>
 
-  <p id="question-txt">[QUESTION]</p>
+  <!-- SAMPLE -->
+  <div class="container-xxl bd-gutter pt-md-1 pb-md-4">
+    <div class="row">
+      <div class="col-xl-8">
+        <h1 class="bd-title mt-0">Examples</h1>
+        
+        <p id="question-text" class="bd-lead">QUESTION (DEBUG)</p>
+        
+        <div class="d-flex flex-column flex-md-row gap-3">
+                <a class="btn btn-lg bd-btn-lg btn-outline-secondary" id="true-button" style="display: none" onclick="pressTrue()">
+            True
+          </a>
+          <a class="btn btn-lg bd-btn-lg btn-outline-secondary" id="false-button" style="display: none" onclick="pressFalse()">
+            False
+          </a>
+        </div>
+        
+      </div>
+      <div class="col-xl-4 d-lg-flex justify-content-xl-end">
+        <script async="" src="https://cdn.carbonads.com/carbon.js?serve=CKYIKKJL&amp;placement=getbootstrapcom" id="_carbonads_js"></script>
 
-  <button id="begin-button">Begin</button>
-  <button id="true-button">True</button>
-  <button id="false-button">False</button>
+      </div>
+    </div>
+  </div>
 
-  <script>
-   
-  </script>
+  <!-- BIG OL RED PRESS ME LOOKIN BOI -->
+  <button id="begin-button" onclick="startQuiz()">Begin</button>
+
+  <div id="question-board">
+
+    <!-- LIST OF ANSWERED TRUE (MEANT FOR DEBUGGING) -->
+    <h4>Answered True</h4>
+    <p id="answered-true">[ ]</p>
+
+    <!-- Quiz Progress -->
+    <div
+      class="progress"
+      role="progressbar"
+      aria-label="Basic example"
+      aria-valuenow="100"
+      aria-valuemin="0"
+      aria-valuemax="100"
+    >
+      <div id="quiz-progress" class="progress-bar" style="width: 0%"></div>
+    </div>
+
+    <br />
+  </div>
+
+  <!-- 
+    RESULTS 
+  -->
+
+  <!---------------------- 
+    SILENCE
+  ----------------------->
+  <div id="silence-panel">
+    <div class="card mb-4 rounded-3 shadow-sm border-primary">
+      <div class="card-header py-3 text-bg-primary border-primary">
+        <h4 class="my-0 fw-normal">Silence</h4>
+      </div>
+      <div class="card-body">
+        <!-- SILENCE SCORE -->
+        <h1>__ %</h1>
+
+        <!-- MASKING -->
+        <div>
+          <h2>Masking</h2>
+          <label for="Q5-answer">5</label>
+          <input
+            id="Q5-answer"
+            type="checkbox"
+            value="Q5-answer"
+            onclick="return false;"
+          />
+          <br />
+          <label for="Q6-answer">6</label>
+          <input
+            id="Q6-answer"
+            type="checkbox"
+            value="Q6-answer"
+            onclick="return false;"
+          />
+        </div>
+
+        <br>
+
+        <!-- AVOIDING GRADE -->
+        <h2>Avoiding</h2>
+        <label for="Q3-answer">3</label>
+        <input
+          id="Q3-answer"
+          type="checkbox"
+          value="Q3-answer"
+          onclick="return false;"
+        />
+        <br />
+        <label for="Q4-answer">4</label>
+        <input
+          id="Q4-answer"
+          type="checkbox"
+          value="Q4-answer"
+          onclick="return false;"
+        />
+
+        <br>
+        <br>
+
+        <!-- WITHDRAWING GRADE -->
+        <h2>Withdrawing</h2>
+        <label for="Q1-answer">1</label>
+        <input
+          id="Q1-answer"
+          type="checkbox"
+          value="Q1-answer"
+          onclick="return false;"
+        />
+        <br />
+        <label for="Q4-answer">2</label>
+        <input
+          id="Q2-answer"
+          type="checkbox"
+          value="Q2-answer"
+          onclick="return false;"
+        />
+
+        <br>
+        <br>
+
+        <!-- HEART GRADE -->
+        <h2>Start with Heart</h2>
+        <label for="Q13-answer">13</label>
+        <input
+          id="Q13-answer"
+          type="checkbox"
+          value="Q13-answer"
+          onclick="return false;"
+        />
+        <br />
+        <label for="Q19-answer">19</label>
+        <input
+          id="Q19-answer"
+          type="checkbox"
+          value="Q19-answer"
+          onclick="return false;"
+        />
+        <br />
+        <label for="Q25-answer">25</label>
+        <input
+          id="Q25-answer"
+          type="checkbox"
+          value="Q25-answer"
+          onclick="return false;"
+        />
+
+        <br>
+        <br>
+
+        <!-- LEARN TO LOOK GRADE -->
+        <h2>Learn to Look</h2>
+        <label for="Q14-answer">14</label>
+        <input
+          id="Q14-answer"
+          type="checkbox"
+          value="Q14-answer"
+          onclick="return false;"
+        />
+        <br />
+        <label for="Q20-answer">20</label>
+        <input
+          id="Q20-answer"
+          type="checkbox"
+          value="Q20-answer"
+          onclick="return false;"
+        />
+        <br />
+        <label for="Q26-answer">26</label>
+        <input
+          id="Q26-answer"
+          type="checkbox"
+          value="Q26-answer"
+          onclick="return false;"
+        />
+
+        <br>
+        <br>
+
+        <!-- MAKE IT SAFE -->
+        <h2>Make it safe</h2>
+        <label for="Q15-answer">15</label>
+        <input
+          id="Q15-answer"
+          type="checkbox"
+          value="Q15-answer"
+          onclick="return false;"
+        />
+        <br />
+        <label for="Q21-answer">21</label>
+        <input
+          id="Q21-answer"
+          type="checkbox"
+          value="Q21-answer"
+          onclick="return false;"
+        />
+        <br />
+        <label for="Q27-answer">27</label>
+        <input
+          id="Q27-answer"
+          type="checkbox"
+          value="Q27-answer"
+          onclick="return false;"
+        />
+
+        <br>
+        <br>
+
+        <!-- MASTER STORIES GRADE -->
+        <h2>Master Stories</h2>
+        <label for="Q16-answer">16</label>
+        <input
+          id="Q16-answer"
+          type="checkbox"
+          value="Q16-answer"
+          onclick="return false;"
+        />
+        <br />
+        <label for="Q22-answer">22</label>
+        <input
+          id="Q22-answer"
+          type="checkbox"
+          value="Q22-answer"
+          onclick="return false;"
+        />
+        <br />
+        <label for="Q28-answer">28</label>
+        <input
+          id="Q28-answer"
+          type="checkbox"
+          value="Q28-answer"
+          onclick="return false;"
+        />
+      </div>
+    </div>
+  </div>
+
+
+
+  <!----------------- 
+    VIOLENCE 
+  ------------------->
+
+  <div id="violence-panel">
+    <div class="card mb-4 rounded-3 shadow-sm border-primary">
+      <div class="card-header py-3 text-bg-primary border-primary">
+        <h4 class="my-0 fw-normal">Violence</h4>
+      </div>
+
+      <div class="card-body">
+        <h1>__ %</h1>
+        <br>
+
+    <!-- CONTROLLING GRADE -->
+    <h2>Controlling</h2>
+    <label for="Q7-answer">7</label>
+    <input
+      id="Q7-answer"
+      type="checkbox"
+      value="Q7-answer"
+      onclick="return false;"
+    />
+    <br />
+    <label for="Q8-answer">8</label>
+    <input
+      id="Q8-answer"
+      type="checkbox"
+      value="Q8-answer"
+      onclick="return false;"
+    />
+
+    <br>
+    <br>
+
+    <!-- LABELLING -->
+    <h2>Labeling</h2>
+    <label for="Q9-answer">9</label>
+    <input
+      id="Q9-answer"
+      type="checkbox"
+      value="Q9-answer"
+      onclick="return false;"
+    />
+    <br />
+    <label for="Q10-answer">10</label>
+    <input
+      id="Q10-answer"
+      type="checkbox"
+      value="Q10-answer"
+      onclick="return false;"
+    />
+
+    <br>
+    <br>
+
+    <div>
+      <!-- ATTACKING GRADE -->
+      <h2>Attacking</h2>
+      <label for="Q11-answer">11</label>
+      <input
+        id="Q11-answer"
+        type="checkbox"
+        value="Q11-answer"
+        onclick="return false;"
+      />
+      <br />
+      <label for="Q12-answer">12</label>
+      <input
+        id="Q12-answer"
+        type="checkbox"
+        value="Q12-answer"
+        onclick="return false;"
+      />
+    </div>
+
+    <br>
+    <br>
+
+    <div>
+      <!-- STATE MY PATH GRADE -->
+      <h2>STATE my Path</h2>
+      <label for="Q17-answer">17</label>
+      <input
+        id="Q17-answer"
+        type="checkbox"
+        value="Q17-answer"
+        onclick="return false;"
+      />
+      <br />
+      <label for="Q23-answer">23</label>
+      <input
+        id="Q23-answer"
+        type="checkbox"
+        value="Q23-answer"
+        onclick="return false;"
+      />
+      <br />
+      <label for="Q29-answer">29</label>
+      <input
+        id="Q29-answer"
+        type="checkbox"
+        value="Q29-answer"
+        onclick="return false;"
+      />
+    </div>
+
+    <br>
+      
+    <!-- EXPLORE  -->
+    <div>
+      <h2>Explore Others' Paths</h2>
+      <label for="Q18-answer">18</label>
+      <input
+        id="Q18-answer"
+        type="checkbox"
+        value="Q18-answer"
+        onclick="return false;"
+      />
+      <br />
+      <label for="Q24-answer">24</label>
+      <input
+        id="Q24-answer"
+        type="checkbox"
+        value="Q24-answer"
+        onclick="return false;"
+      />
+      <br />
+      <label for="Q30-answer">30</label>
+      <input
+        id="Q30-answer"
+        type="checkbox"
+        value="Q30-answer"
+        onclick="return false;"
+      />
+    </div>
+
+    <div>
+      <h2>Move to Action</h2>
+      <label for="Q31-answer">31</label>
+      <input
+        id="Q31-answer"
+        type="checkbox"
+        value="Q31-answer"
+        onclick="return false;"
+      />
+      <br />
+      <label for="Q32-answer">32</label>
+      <input
+        id="Q32-answer"
+        type="checkbox"
+        value="Q32-answer"
+        onclick="return false;"
+      />
+      <br />
+      <label for="Q33-answer">33</label>
+      <input
+        id="Q33-answer"
+        type="checkbox"
+        value="Q33-answer"
+        onclick="return false;"
+      />
+    </div>
+  </div>
+
+  <script src="./questions.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"
+  ></script>
 </body>

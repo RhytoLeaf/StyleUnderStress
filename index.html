@@ -1,5 +1,7 @@
-<!--  -->
+<!-- HE -->
 <head>
+  <title>Style Under Stress</title>
+
   <!--  -->
   <link rel="stylesheet" href="./styles.css" />
   <link
@@ -10,43 +12,71 @@
   />
 </head>
 
-<body>
-  <h1>Style Under Stress</h1>
+<body class="bg-success">
+  <!-- TITLE -->
+  <header>
+    <h1>Style Under Stress</h1>
+  </header>
 
   <!-- SAMPLE -->
   <div class="container-xxl bd-gutter pt-md-1 pb-md-4">
     <div class="row">
+      <!-- QUESTION PANEL -->
       <div class="col-xl-8">
-        <h1 class="bd-title mt-0">Examples</h1>
-        
-        <p id="question-text" class="bd-lead">QUESTION (DEBUG)</p>
-        
+        <h1 id="question-number" class="bd-title mt-0"></h1>
+
+        <p id="question-text" class="bd-lead">
+          Welcome, press "Begin" to start the quiz.
+        </p>
+
         <div class="d-flex flex-column flex-md-row gap-3">
-                <a class="btn btn-lg bd-btn-lg btn-outline-secondary" id="true-button" style="display: none" onclick="pressTrue()">
+          <a
+            class="btn btn-lg bd-btn-lg btn-outline-secondary"
+            id="true-button"
+            style="display: none"
+            onclick="pressTrue()"
+          >
             True
           </a>
-          <a class="btn btn-lg bd-btn-lg btn-outline-secondary" id="false-button" style="display: none" onclick="pressFalse()">
+          <a
+            class="btn btn-lg bd-btn-lg btn-outline-secondary"
+            id="false-button"
+            style="display: none"
+            onclick="pressFalse()"
+          >
             False
           </a>
         </div>
-        
       </div>
-      <div class="col-xl-4 d-lg-flex justify-content-xl-end">
-        <script async="" src="https://cdn.carbonads.com/carbon.js?serve=CKYIKKJL&amp;placement=getbootstrapcom" id="_carbonads_js"></script>
 
+      <div class="col-xl-4 d-lg-flex justify-content-xl-end">
+        <script
+          async=""
+          src="https://cdn.carbonads.com/carbon.js?serve=CKYIKKJL&amp;placement=getbootstrapcom"
+          id="_carbonads_js"
+        ></script>
       </div>
     </div>
   </div>
 
-  <!-- BIG OL RED PRESS ME LOOKIN BOI -->
-  <button id="begin-button" onclick="startQuiz()">Begin</button>
+  <!---------------------------------------------- 
+    START
+    BUTTON 
+  ------------------------------------------------>
+
+  <div class="container">
+    <div class="vertical-center">
+      <button
+        id="begin-button"
+        onclick="startQuiz()"
+        class="bg-danger btn btn-lg bd-btn-lg"
+      >
+        Begin
+      </button>
+    </div>
+  </div>
 
   <div id="question-board">
-
-    <!-- LIST OF ANSWERED TRUE (MEANT FOR DEBUGGING) -->
-    <h4>Answered True</h4>
-    <p id="answered-true">[ ]</p>
-
     <!-- Quiz Progress -->
     <div
       class="progress"
@@ -66,9 +96,78 @@
     RESULTS 
   -->
 
-  <!---------------------- 
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Results</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNavDarkDropdown"
+        aria-controls="navbarNavDarkDropdown"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+        <ul class="navbar-nav">
+          <li>
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDarkDropdownMenuLink"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Silence
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDarkDropdownMenuLink"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Violence
+            </a>
+            <ul
+              class="dropdown-menu dropdown-menu-dark"
+              aria-labelledby="navbarDarkDropdownMenuLink"
+            >
+              <li>
+                <a class="dropdown-item" href="#">
+                  
+                  
+
+                </a>
+              </li>
+              <li><a class="dropdown-item" href="#">?</a></li>
+              <li><a class="dropdown-item" href="#">?</a></li>
+              <li><a class="dropdown-item" href="#">?</a></li>
+              <li><a class="dropdown-item" href="#">?</a></li>
+              <li><a class="dropdown-item" href="#">?</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div>
+    <!-- LIST OF ANSWERED TRUE (MEANT FOR DEBUGGING) -->
+    <h4>Answered True</h4>
+    <p id="answered-true">[ ]</p>
+
+    <!---------------------- 
     SILENCE
   ----------------------->
+  </div>
+
   <div id="silence-panel">
     <div class="card mb-4 rounded-3 shadow-sm border-primary">
       <div class="card-header py-3 text-bg-primary border-primary">
@@ -76,7 +175,7 @@
       </div>
       <div class="card-body">
         <!-- SILENCE SCORE -->
-        <h1>__ %</h1>
+        <h1 id>__ %</h1>
 
         <!-- MASKING -->
         <div>
@@ -98,7 +197,7 @@
           />
         </div>
 
-        <br>
+        <br />
 
         <!-- AVOIDING GRADE -->
         <h2>Avoiding</h2>
@@ -118,8 +217,8 @@
           onclick="return false;"
         />
 
-        <br>
-        <br>
+        <br />
+        <br />
 
         <!-- WITHDRAWING GRADE -->
         <h2>Withdrawing</h2>
@@ -139,8 +238,8 @@
           onclick="return false;"
         />
 
-        <br>
-        <br>
+        <br />
+        <br />
 
         <!-- HEART GRADE -->
         <h2>Start with Heart</h2>
@@ -168,8 +267,8 @@
           onclick="return false;"
         />
 
-        <br>
-        <br>
+        <br />
+        <br />
 
         <!-- LEARN TO LOOK GRADE -->
         <h2>Learn to Look</h2>
@@ -197,8 +296,8 @@
           onclick="return false;"
         />
 
-        <br>
-        <br>
+        <br />
+        <br />
 
         <!-- MAKE IT SAFE -->
         <h2>Make it safe</h2>
@@ -226,11 +325,11 @@
           onclick="return false;"
         />
 
-        <br>
-        <br>
+        <br />
+        <br />
 
         <!-- MASTER STORIES GRADE -->
-        <h2>Master Stories</h2>
+        <h2>Master my stories</h2>
         <label for="Q16-answer">16</label>
         <input
           id="Q16-answer"
@@ -258,178 +357,183 @@
     </div>
   </div>
 
-
-
   <!----------------- 
     VIOLENCE 
   ------------------->
 
   <div id="violence-panel">
     <div class="card mb-4 rounded-3 shadow-sm border-primary">
+      <!-- Violence HEARDER -->
       <div class="card-header py-3 text-bg-primary border-primary">
         <h4 class="my-0 fw-normal">Violence</h4>
       </div>
 
       <div class="card-body">
         <h1>__ %</h1>
-        <br>
+        <br />
 
-    <!-- CONTROLLING GRADE -->
-    <h2>Controlling</h2>
-    <label for="Q7-answer">7</label>
-    <input
-      id="Q7-answer"
-      type="checkbox"
-      value="Q7-answer"
-      onclick="return false;"
-    />
-    <br />
-    <label for="Q8-answer">8</label>
-    <input
-      id="Q8-answer"
-      type="checkbox"
-      value="Q8-answer"
-      onclick="return false;"
-    />
+        <!-- CONTROLLING GRADE -->
+        <h2>Controlling</h2>
+        <label for="Q7-answer">7</label>
+        <input
+          id="Q7-answer"
+          type="checkbox"
+          value="Q7-answer"
+          onclick="return false;"
+        />
+        <br />
+        <label for="Q8-answer">8</label>
+        <input
+          id="Q8-answer"
+          type="checkbox"
+          value="Q8-answer"
+          onclick="return false;"
+        />
 
-    <br>
-    <br>
+        <br />
+        <br />
 
-    <!-- LABELLING -->
-    <h2>Labeling</h2>
-    <label for="Q9-answer">9</label>
-    <input
-      id="Q9-answer"
-      type="checkbox"
-      value="Q9-answer"
-      onclick="return false;"
-    />
-    <br />
-    <label for="Q10-answer">10</label>
-    <input
-      id="Q10-answer"
-      type="checkbox"
-      value="Q10-answer"
-      onclick="return false;"
-    />
+        <!-- LABELLING -->
+        <h2>Labeling</h2>
+        <label for="Q9-answer">9</label>
+        <input
+          id="Q9-answer"
+          type="checkbox"
+          value="Q9-answer"
+          onclick="return false;"
+        />
+        <br />
+        <label for="Q10-answer">10</label>
+        <input
+          id="Q10-answer"
+          type="checkbox"
+          value="Q10-answer"
+          onclick="return false;"
+        />
 
-    <br>
-    <br>
+        <br />
+        <br />
 
-    <div>
-      <!-- ATTACKING GRADE -->
-      <h2>Attacking</h2>
-      <label for="Q11-answer">11</label>
-      <input
-        id="Q11-answer"
-        type="checkbox"
-        value="Q11-answer"
-        onclick="return false;"
-      />
-      <br />
-      <label for="Q12-answer">12</label>
-      <input
-        id="Q12-answer"
-        type="checkbox"
-        value="Q12-answer"
-        onclick="return false;"
-      />
-    </div>
+        <div>
+          <!-- ATTACKING GRADE -->
+          <h2>Attacking</h2>
+          <label for="Q11-answer">11</label>
+          <input
+            id="Q11-answer"
+            type="checkbox"
+            value="Q11-answer"
+            onclick="return false;"
+          />
+          <br />
+          <label for="Q12-answer">12</label>
+          <input
+            id="Q12-answer"
+            type="checkbox"
+            value="Q12-answer"
+            onclick="return false;"
+          />
+        </div>
 
-    <br>
-    <br>
+        <br />
+        <br />
 
-    <div>
-      <!-- STATE MY PATH GRADE -->
-      <h2>STATE my Path</h2>
-      <label for="Q17-answer">17</label>
-      <input
-        id="Q17-answer"
-        type="checkbox"
-        value="Q17-answer"
-        onclick="return false;"
-      />
-      <br />
-      <label for="Q23-answer">23</label>
-      <input
-        id="Q23-answer"
-        type="checkbox"
-        value="Q23-answer"
-        onclick="return false;"
-      />
-      <br />
-      <label for="Q29-answer">29</label>
-      <input
-        id="Q29-answer"
-        type="checkbox"
-        value="Q29-answer"
-        onclick="return false;"
-      />
-    </div>
+        <div>
+          <!-- STATE MY PATH GRADE -->
+          <h2>STATE my Path</h2>
+          <label for="Q17-answer">17</label>
+          <input
+            id="Q17-answer"
+            type="checkbox"
+            value="Q17-answer"
+            onclick="return false;"
+          />
+          <br />
+          <label for="Q23-answer">23</label>
+          <input
+            id="Q23-answer"
+            type="checkbox"
+            value="Q23-answer"
+            onclick="return false;"
+          />
+          <br />
+          <label for="Q29-answer">29</label>
+          <input
+            id="Q29-answer"
+            type="checkbox"
+            value="Q29-answer"
+            onclick="return false;"
+          />
+        </div>
 
-    <br>
-      
-    <!-- EXPLORE  -->
-    <div>
-      <h2>Explore Others' Paths</h2>
-      <label for="Q18-answer">18</label>
-      <input
-        id="Q18-answer"
-        type="checkbox"
-        value="Q18-answer"
-        onclick="return false;"
-      />
-      <br />
-      <label for="Q24-answer">24</label>
-      <input
-        id="Q24-answer"
-        type="checkbox"
-        value="Q24-answer"
-        onclick="return false;"
-      />
-      <br />
-      <label for="Q30-answer">30</label>
-      <input
-        id="Q30-answer"
-        type="checkbox"
-        value="Q30-answer"
-        onclick="return false;"
-      />
-    </div>
+        <br />
+        <br />
 
-    <div>
-      <h2>Move to Action</h2>
-      <label for="Q31-answer">31</label>
-      <input
-        id="Q31-answer"
-        type="checkbox"
-        value="Q31-answer"
-        onclick="return false;"
-      />
-      <br />
-      <label for="Q32-answer">32</label>
-      <input
-        id="Q32-answer"
-        type="checkbox"
-        value="Q32-answer"
-        onclick="return false;"
-      />
-      <br />
-      <label for="Q33-answer">33</label>
-      <input
-        id="Q33-answer"
-        type="checkbox"
-        value="Q33-answer"
-        onclick="return false;"
-      />
+        <!-- EXPLORE  -->
+        <div>
+          <h2>Explore Others' Paths</h2>
+          <label for="Q18-answer">18</label>
+          <input
+            id="Q18-answer"
+            type="checkbox"
+            value="Q18-answer"
+            onclick="return false;"
+          />
+          <br />
+          <label for="Q24-answer">24</label>
+          <input
+            id="Q24-answer"
+            type="checkbox"
+            value="Q24-answer"
+            onclick="return false;"
+          />
+          <br />
+          <label for="Q30-answer">30</label>
+          <input
+            id="Q30-answer"
+            type="checkbox"
+            value="Q30-answer"
+            onclick="return false;"
+          />
+        </div>
+
+        <br />
+        <br />
+
+        <div>
+          <h2>Move to Action</h2>
+          <label for="Q31-answer">31</label>
+          <input
+            id="Q31-answer"
+            type="checkbox"
+            value="Q31-answer"
+            onclick="return false;"
+          />
+          <br />
+          <label for="Q32-answer">32</label>
+          <input
+            id="Q32-answer"
+            type="checkbox"
+            value="Q32-answer"
+            onclick="return false;"
+          />
+          <br />
+          <label for="Q33-answer">33</label>
+          <input
+            id="Q33-answer"
+            type="checkbox"
+            value="Q33-answer"
+            onclick="return false;"
+          />
+        </div>
+      </div>
+
+      <script src="./questions.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"
+      ></script>
     </div>
   </div>
-
-  <script src="./questions.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-    crossorigin="anonymous"
-  ></script>
 </body>

@@ -23,7 +23,9 @@
     <div class="row">
       <!-- QUESTION PANEL -->
       <div class="col-xl-8">
-        <h1 id="question-number" class="bd-title mt-0"></h1>
+        <br />
+
+        <h2 id="question-number" class="bd-title mt-0"></h2>
 
         <p id="question-text" class="bd-lead">
           Welcome, press "Begin" to start the quiz.
@@ -31,7 +33,7 @@
 
         <div class="d-flex flex-column flex-md-row gap-3">
           <a
-            class="btn btn-lg bd-btn-lg btn-outline-secondary"
+            class="btn btn-lg bd-btn-lg"
             id="true-button"
             style="display: none"
             onclick="pressTrue()"
@@ -39,7 +41,7 @@
             True
           </a>
           <a
-            class="btn btn-lg bd-btn-lg btn-outline-secondary"
+            class="btn btn-lg bd-btn-lg"
             id="false-button"
             style="display: none"
             onclick="pressFalse()"
@@ -60,17 +62,15 @@
   </div>
 
   <!---------------------------------------------- 
-    START
+    BEGIN
+
+    QUIZ
+
     BUTTON 
   ------------------------------------------------>
-
-  <div class="container">
-    <div class="vertical-center">
-      <button
-        id="begin-button"
-        onclick="startQuiz()"
-        class="bg-danger btn btn-lg bd-btn-lg"
-      >
+  <div class="container my-3">
+    <div class="col-md-12 text-center">
+      <button id="begin-button" onclick="startQuiz()" class="bg-danger btn">
         Begin
       </button>
     </div>
@@ -95,7 +95,6 @@
   <!-- 
     RESULTS 
   -->
-
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Results</a>
@@ -123,6 +122,36 @@
             >
               Silence
             </a>
+            <ul
+              class="dropdown-menu dropdown-menu-dark"
+              aria-labelledby="navbarDarkDropdownMenuLink"
+            >
+              <!-- TRAIT 1: MASKING-->
+              <li class="dropdown-item">
+                <div>
+                  <h2>Masking</h2>
+                  <label for="Q5-answer">5</label>
+                  <input
+                    id="Q5-answer"
+                    type="checkbox"
+                    value="Q5-answer"
+                    onclick="return false;"
+                  />
+                  <br />
+                  <label for="Q6-answer">6</label>
+                  <input
+                    id="Q6-answer"
+                    type="checkbox"
+                    value="Q6-answer"
+                    onclick="return false;"
+                  />
+                </div>
+              </li>
+              <li><a class="dropdown-item" href="#">?</a></li>
+              <li><a class="dropdown-item" href="#">?</a></li>
+              <li><a class="dropdown-item" href="#">?</a></li>
+              <li><a class="dropdown-item" href="#">?</a></li>
+            </ul>
           </li>
           <li class="nav-item dropdown">
             <a
@@ -139,14 +168,8 @@
               class="dropdown-menu dropdown-menu-dark"
               aria-labelledby="navbarDarkDropdownMenuLink"
             >
-              <li>
-                <a class="dropdown-item" href="#">
-                  
-                  
-
-                </a>
-              </li>
-              <li><a class="dropdown-item" href="#">?</a></li>
+              <!-- TRAIT 1 -->
+              <li class="dropdown-item"></li>
               <li><a class="dropdown-item" href="#">?</a></li>
               <li><a class="dropdown-item" href="#">?</a></li>
               <li><a class="dropdown-item" href="#">?</a></li>

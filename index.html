@@ -10,7 +10,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
 
-  </head>
+</head>
 
 <!-- 
   
@@ -19,87 +19,193 @@
  -->
 
 <body class="bg-success">
-  <!-- TITLE -->
-  <header>
-    <h1>Style Under Stress</h1>
-  </header>
 
-<!--  -->
- 
-<!--  -->
-  <!-- SAMPLE -->
-  <div class="container-xxl bd-gutter pt-md-1 pb-md-4">
-    <div class="row">
-      <!-- QUESTION PANEL -->
-      <div class="col-xl-8">
-        <br />
+  <div class="container-xxl">
+    <!-- TITLE -->
+    <header>
+      <h1>Style Under Stress</h1>
 
-        <h2 id="question-number" class="bd-title mt-0"></h2>
 
-        <p id="question-text" class="bd-lead">
-          Welcome, press "Begin" to start the quiz.
-        </p>
+    </header>
 
-        <div class="d-flex flex-column flex-md-row gap-3">
-          <a class="btn btn-lg bd-btn-lg" id="true-button" style="display: none" onclick="pressTrue()">
-            True
-          </a>
-          <a class="btn btn-lg bd-btn-lg" id="false-button" style="display: none" onclick="pressFalse()">
-            False
-          </a>
+    <!-- QUESTION PANEL -->
+    <div class="col-xl-8">
+      <br />
+
+      <!--  -->
+      <h2 id="question-number" class="bd-title"></h2>
+
+
+      <br><br><br><br>
+
+
+      <!--  -->
+      <p id="question-text">
+        Welcome, press "Begin" to start the quiz.
+      </p>
+      <!--  -->
+      <!-- SAMPLE -->
+      <div class="container-xxl bd-gutter">
+        <div class="row">
+
+
+
+
+
+          <!--  -->
+          <div class="d-flex flex-column flex-md-row gap-3">
+
+            <a class="btn btn-lg bd-btn-lg" id="true-button" style="display: none" onclick="pressTrue()">
+              True
+            </a>
+
+            <a class="btn btn-lg bd-btn-lg" id="false-button" style="display: none" onclick="pressFalse()">
+              False
+            </a>
+
+          </div>
+
+        </div>
+
+        <div class="col-xl-4 d-lg-flex justify-content-xl-end">
+          <script async="" src="https://cdn.carbonads.com/carbon.js?serve=CKYIKKJL&amp;placement=getbootstrapcom"
+            id="_carbonads_js"></script>
         </div>
       </div>
-
-      <div class="col-xl-4 d-lg-flex justify-content-xl-end">
-        <script async="" src="https://cdn.carbonads.com/carbon.js?serve=CKYIKKJL&amp;placement=getbootstrapcom"
-          id="_carbonads_js"></script>
-      </div>
     </div>
-  </div>
 
-  <!---------------------------------------------- 
+    <!---------------------------------------------- 
     BEGIN
 
     BUTTON 
   ------------------------------------------------>
-  <div class="container my-3">
-    <div class="col-md-12 text-center">
-      <button id="begin-button" onclick="startQuiz()" class="bg-danger btn">
-        Begin
-      </button>
-    </div>
-  </div>
-
-  <div id="question-board">
-    <!-- Quiz Progress -->
-    <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="100" aria-valuemin="0"
-      aria-valuemax="100">
-      <div id="quiz-progress" class="progress-bar" style="width: 0%"></div>
+    <div class="container my-3">
+      <div class="col-md-12 text-center">
+        <button id="begin-button" onclick="startQuiz()" class="bg-danger btn">
+          Begin
+        </button>
+      </div>
     </div>
 
-    <br />
-  </div>
+    <div id="question-board">
+      <!-- Quiz Progress -->
+      <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="100" aria-valuemin="0"
+        aria-valuemax="100">
+        <div id="quiz-progress" class="progress-bar" style="width: 0%"></div>
+      </div>
+
+      <br />
+    </div>
 
 
 
-  <div>
-    <!-- LIST OF ANSWERED TRUE (MEANT FOR DEBUGGING) -->
-    <h4>Answered True</h4>
-    <p id="answered-true">[ ]</p>
-  </div>
+    <div>
+      <!-- LIST OF ANSWERED TRUE (MEANT FOR DEBUGGING) -->
+      <h4>Answered True</h4>
+      <p id="answered-true">[ ]</p>
+    </div>
     <!---------------------- 
     SILENCE
   ----------------------->
 
+
+    <div class="card result-card">
+      <img class="card-img-top" src="./images/silence.png" alt="Card image cap">
+      <div class="card-body">
+        <!-- Masking -->
+        <p>Masking</p>
+        <input type="checkbox" id="q-5" name="" value="">
+        <input type="checkbox" id="q-6" name="" value="">
+        <p id="masking-pct">0%</p>
+
+
+        <!-- Avoiding -->
+        <p>Avoiding</p>
+        <input type="checkbox" id="q-3" name="" value="">
+        <input type="checkbox" id="q-4" name="" value="">
+        <p id="avoiding-pct">0%</p>
+
+
+        <!-- Withdrawing -->
+        <p>Withdrawing</p>
+        <input type="checkbox" id="q-1" name="" value="">
+        <input type="checkbox" id="q-2" name="" value="">
+        <p id="withdrawing-pct">0%</p>
+
+
+        <!-- start w the heart -->
+        <p>Start with the heart</p>
+        <input type="checkbox" id="q-13" name="" value="">
+        <input type="checkbox" id="q-19" name="" value="">
+        <input type="checkbox" id="q-25" name="" value="">
+        <p id="heart-pct">0%</p>
+
+
+        <!-- Learn to look -->
+        <p>Learn to look</p>
+        <input type="checkbox" id="q-14" name="" value="">
+        <input type="checkbox" id="q-20" name="" value="">
+        <input type="checkbox" id="q-26" name="" value="">
+        <p id="look-pct">0%</p>
+
+
+        <!-- Make it safe -->
+        <p>Make it safe</p>
+        <input type="checkbox" id="q-15" name="" value="">
+        <input type="checkbox" id="q-21" name="" value="">
+        <input type="checkbox" id="q-27" name="" value="">
+        <p id="safe-pct">0%</p>
+
+
+        <!-- Master my stories -->
+        <p>Master my stories</p>
+        <input type="checkbox" id="q-16" name="" value="">
+        <input type="checkbox" id="q-22" name="" value="">
+        <input type="checkbox" id="q-28" name="" value="">
+        <p id="stories-pct">0%</p>
+
+
+      </div>
+
+    </div>
+
     <!----------------- 
-
-
-
     VIOLENCE 
-
-
-
   ------------------->
+
+    <!-- Controlling -->
+    <p>Controlling</p>
+    <input type="checkbox" id="q-7" name="" value="">
+    <input type="checkbox" id="q-8" name="" value="">
+
+    <!-- Labeling -->
+    <p>Labeling</p>
+    <input type="checkbox" id="q-9" name="" value="">
+    <input type="checkbox" id="q-10" name="" value="">
+
+    <!-- Attacking -->
+    <p>Attacking</p>
+    <input type="checkbox" id="q-11" name="" value="">
+    <input type="checkbox" id="q-12" name="" value="">
+
+    <!-- STATE my path -->
+    <p>STATE my path</p>
+    <input type="checkbox" id="q-17" name="" value="">
+    <input type="checkbox" id="q-23" name="" value="">
+    <input type="checkbox" id="q-29" name="" value="">
+
+    <!-- Explore Others' Paths -->
+    <p>Explore Others' Paths</p>
+    <input type="checkbox" id="q-18" name="" value="">
+    <input type="checkbox" id="q-24" name="" value="">
+    <input type="checkbox" id="q-30" name="" value="">
+
+    <!-- Move to action -->
+    <p>Move to action</p>
+    <input type="checkbox" id="q-31" name="" value="">
+    <input type="checkbox" id="q-32" name="" value="">
+    <input type="checkbox" id="q-33" name="" value="">
+
 
     <!-- END -->
 
@@ -108,6 +214,11 @@
       Copyright &copy; RhytoLeaf Inc.
     </p>
 
-<script src='./questions.js'></script>
+
+  </div>
+
+  <script src='./questions.js'></script>
+
+
 
 </body>

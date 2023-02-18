@@ -15,6 +15,7 @@ function startQuiz() {
 
 function setAnsweredTrueText() {
   document.getElementById("answered-true").innerHTML = answeredTrue.toString();
+
 }
 
 function setQuestionText() {
@@ -22,12 +23,14 @@ function setQuestionText() {
 
   //update quiz progress bar
   document.getElementById("quiz-progress").style.width =
-    (currentQuestion / 34) * 100 + "%";
+    (currentQuestion / 33) * 100 + "%";
 
-  if (currentQuestion > 34) {
+    //update trues
+    setAnsweredTrueText();
+
+  if (currentQuestion > 33) {
     endQuiz();
   } else {
-    setAnsweredTrueText();
     document.getElementById("question-text").innerHTML =
       questions[currentQuestion - 1];
 
@@ -40,8 +43,10 @@ function setQuestionText() {
 function pressTrue() {
   answeredTrue.push(currentQuestion);
 
+  document.getElementById("q-"+currentQuestion).checked = true;
+
   //Checkbox marked
-  document.getElementById("Q" + currentQuestion + "-answer").checked = true;
+  //document.getElementById("Q" + currentQuestion + "-answer").checked = true;
 
   setQuestionText();
 }
@@ -51,10 +56,13 @@ function pressFalse() {
 }
 
 function endQuiz() {
-  document.getElementById("question-text").innerHTML = "End of quiz";
   document.getElementById("begin-button").style.display = "none";
   document.getElementById("true-button").style.display = "none";
   document.getElementById("false-button").style.display = "none";
+
+  document.getElementById("question-number").innerHTML ="End of quiz";
+  document.getElementById("question-text").innerHTML =  "Please see your results below:"
+
 }
 
 function showResults() {
@@ -96,3 +104,5 @@ const questions = [
   "I find myself in situations where people get their feelings hurt because they thought they would have more of a say in final decisions than they end uphaving.",
   "I get frustrated sometimes at how long it takes some groups to make decisions because too many people are involved.",
 ];
+
+console.log(questions.length);

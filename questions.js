@@ -2,6 +2,28 @@ var answeredTrue = [];
 var answeredFalse = [];
 var currentQuestion = 0;
 
+
+//TEST RESULT PERCENTAGES
+//silence
+var masking_pct=0;
+var avoiding_pct=0;
+var look_pct=0;
+var withdrawing_pct=0;
+var heart_pct=0;
+var look_pct=0;
+var safe_pct=0;
+var stories_pct=0;
+//violence
+var controlling_pct=0;
+var labeling_pct=0;
+var attacking_pct=0;
+var state_pct=0;
+var explore_pct=0;
+var action_pct=0;
+
+
+
+//
 function startQuiz() {
   document.getElementById("begin-button").style.display = "none";
   document.getElementById("true-button").style.display = "block";
@@ -13,11 +35,13 @@ function startQuiz() {
   setQuestionText();
 }
 
+//
 function setAnsweredTrueText() {
   document.getElementById("answered-true").innerHTML = answeredTrue.toString();
 
 }
 
+//
 function setQuestionText() {
   currentQuestion++;
 
@@ -48,13 +72,16 @@ function pressTrue() {
   //Checkbox marked
   //document.getElementById("Q" + currentQuestion + "-answer").checked = true;
 
+
   setQuestionText();
 }
 
+// 
 function pressFalse() {
   setQuestionText();
 }
 
+// 
 function endQuiz() {
   document.getElementById("begin-button").style.display = "none";
   document.getElementById("true-button").style.display = "none";
@@ -65,8 +92,13 @@ function endQuiz() {
 
 }
 
+// 
 function showResults() {
   document.getElementById("results-panel").style.display = "none";
+  
+  document.getElementById("look-" + "pct").innerHTML = look_pct+"%";
+
+
 }
 
 const questions = [

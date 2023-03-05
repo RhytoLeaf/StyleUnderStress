@@ -25,9 +25,17 @@ var action_pct=0;
 
 //
 function startQuiz() {
+  //HIDE begin button
   document.getElementById("begin-button").style.display = "none";
+
+  //SHOW TRUE and False buttons
   document.getElementById("true-button").style.display = "block";
   document.getElementById("false-button").style.display = "block";
+
+  //list of answered true (DEBUG)
+  document.getElementById("list-of-answers").style.display = "block";
+
+
 
   //progress bar style style="width: 100%"
 
@@ -35,13 +43,24 @@ function startQuiz() {
   setQuestionText();
 }
 
-//
+/**
+ * 
+ * Adds question number to list of
+ * 
+ * ANSWERED TRUE
+ * 
+ */
 function setAnsweredTrueText() {
   document.getElementById("answered-true").innerHTML = answeredTrue.toString();
 
 }
 
-//
+/**
+ * 
+ * Sets question text
+ * 
+ * 
+ */
 function setQuestionText() {
   currentQuestion++;
 
@@ -72,23 +91,39 @@ function pressTrue() {
   //Checkbox marked
   //document.getElementById("Q" + currentQuestion + "-answer").checked = true;
 
-
   setQuestionText();
 }
 
-// 
+/**
+ * 
+ * Simply proceed to next question 
+ * since there are no more computations to be done 
+ * for Qs answered FALSE
+ * 
+ */ 
 function pressFalse() {
   setQuestionText();
 }
 
-// 
+/**
+ * 
+ * Removes the T/F buttons from the page
+ * 
+ **/ 
 function endQuiz() {
+
+  //Make true and false buttons disappear
   document.getElementById("begin-button").style.display = "none";
   document.getElementById("true-button").style.display = "none";
   document.getElementById("false-button").style.display = "none";
 
+  //Display end of quiz message
   document.getElementById("question-number").innerHTML ="End of quiz";
   document.getElementById("question-text").innerHTML =  "Please see your results below:"
+
+  //Display results panel
+  document.getElementById("result-card").style.display = "block";
+
 
 }
 
@@ -137,4 +172,7 @@ const questions = [
   "I get frustrated sometimes at how long it takes some groups to make decisions because too many people are involved.",
 ];
 
+
+
+// Show length in log
 console.log(questions.length);

@@ -95,136 +95,151 @@
       </div>
 
       <br />
+
+
+
     </div>
 
 
-
-    <div>
-      <!-- LIST OF ANSWERED TRUE (MEANT FOR DEBUGGING) -->
+    <!-- LIST OF ANSWERED TRUE (MEANT FOR DEBUGGING) -->
+    <div id="list-of-answers">
       <h4>Answered True</h4>
       <p id="answered-true">[ ]</p>
     </div>
 
+
+
+
+
     <!-------------------- 
       RESULTS 
     --------------------->
-    <h2>Result</h2>
+    <div id="result-card">
 
-    <!---------------------- 
+      <h2>Results</h2>
+
+      <p>
+        Your silence and violence scores give you a measure of how frequently
+        you fall into these less-than-perfect strategies.
+      </p>
+
+
+      <!---------------------- 
       SILENCE
-    ----------------------->
+      ----------------------->
+      <div class="card result-card">
+        <img class="card-img-top" src="./images/silence.png" alt="Card image cap">
+        <div class="card-body">
 
-    <p>
-      Your silence and violence scores give you a measure of how frequently
-      you fall into these less-than-perfect strategies.
-    </p>
-
-
-    <div class="card result-card">
-      <img class="card-img-top" src="./images/silence.png" alt="Card image cap">
-      <div class="card-body">
-
-        <!-- Masking -->
-        <p>Masking</p>
-        <input type="checkbox" id="q-5" name="" value="">
-        <input type="checkbox" id="q-6" name="" value="">
-        <p id="masking-pct">0%</p>
+          <!-- Masking -->
+          <p>Masking</p>
+          <input type="checkbox" id="q-5" name="" value="">
+          <input type="checkbox" id="q-6" name="" value="">
+          <p id="masking-pct">0%</p>
 
 
-        <!-- Avoiding -->
-        <p>Avoiding</p>
-        <input type="checkbox" id="q-3" name="" value="">
-        <input type="checkbox" id="q-4" name="" value="">
-        <p id="avoiding-pct">0%</p>
+          <!-- Avoiding -->
+          <p>Avoiding</p>
+          <input type="checkbox" id="q-3" name="" value="">
+          <input type="checkbox" id="q-4" name="" value="">
+          <p id="avoiding-pct">0%</p>
 
 
-        <!-- Withdrawing -->
-        <p>Withdrawing</p>
-        <input type="checkbox" id="q-1" name="" value="">
-        <input type="checkbox" id="q-2" name="" value="">
-        <p id="withdrawing-pct">0%</p>
+          <!-- Withdrawing -->
+          <p>Withdrawing</p>
+          <input type="checkbox" id="q-1" name="" value="">
+          <input type="checkbox" id="q-2" name="" value="">
+          <p id="withdrawing-pct">0%</p>
 
 
-        <!-- start w the heart -->
-        <p>Start with the heart</p>
-        <input type="checkbox" id="q-13" name="" value="">
-        <input type="checkbox" id="q-19" name="" value="">
-        <input type="checkbox" id="q-25" name="" value="">
-        <p id="heart-pct">0%</p>
+          <!-- start w the heart -->
+          <p>Start with the heart</p>
+          <input type="checkbox" id="q-13" name="" value="">
+          <input type="checkbox" id="q-19" name="" value="">
+          <input type="checkbox" id="q-25" name="" value="">
+          <p id="heart-pct">0%</p>
 
 
-        <!-- Learn to look -->
-        <p>Learn to look</p>
-        <input type="checkbox" id="q-14" name="" value="">
-        <input type="checkbox" id="q-20" name="" value="">
-        <input type="checkbox" id="q-26" name="" value="">
-        <p id="look-pct">0%</p>
+          <!-- Learn to look -->
+          <p>Learn to look</p>
+          <input type="checkbox" id="q-14" name="" value="">
+          <input type="checkbox" id="q-20" name="" value="">
+          <input type="checkbox" id="q-26" name="" value="">
+          <p id="look-pct">0%</p>
 
 
-        <!-- Make it safe -->
-        <p>Make it safe</p>
-        <input type="checkbox" id="q-15" name="" value="">
-        <input type="checkbox" id="q-21" name="" value="">
-        <input type="checkbox" id="q-27" name="" value="">
-        <p id="safe-pct">0%</p>
+          <!-- Make it safe -->
+          <p>Make it safe</p>
+          <input type="checkbox" id="q-15" name="" value="">
+          <input type="checkbox" id="q-21" name="" value="">
+          <input type="checkbox" id="q-27" name="" value="">
+          <p id="safe-pct">0%</p>
 
 
-        <!-- Master my stories -->
-        <p>Master my stories</p>
-        <input type="checkbox" id="q-16" name="" value="">
-        <input type="checkbox" id="q-22" name="" value="">
-        <input type="checkbox" id="q-28" name="" value="">
-        <p id="stories-pct">0%</p>
+          <!-- Master my stories -->
+          <p>Master my stories</p>
+          <input type="checkbox" id="q-16" name="" value="">
+          <input type="checkbox" id="q-22" name="" value="">
+          <input type="checkbox" id="q-28" name="" value="">
+          <p id="stories-pct">0%</p>
 
+
+        </div>
 
       </div>
 
-    </div>
+      <br>
 
     <!----------------- 
     VIOLENCE 
-  ------------------->
+    ------------------->
 
-    <!-- Controlling -->
-    <p>Controlling</p>
-    <input type="checkbox" id="q-7" name="" value="">
-    <input type="checkbox" id="q-8" name="" value="">
-    <p id="controlling-pct">0%</p>
+      <div class="card result-card">
+        <img class="card-img-top" src="./images/violence.png" alt="Card image cap">
+        <div class="card-body">
 
-    <!-- Labeling -->
-    <p>Labeling</p>
-    <input type="checkbox" id="q-9" name="" value="">
-    <input type="checkbox" id="q-10" name="" value="">
-    <p id="labeling-pct">0%</p>
+          <!-- Controlling -->
+          <p>Controlling</p>
+          <input type="checkbox" id="q-7" name="" value="">
+          <input type="checkbox" id="q-8" name="" value="">
+          <p id="controlling-pct">0%</p>
 
-    <!-- Attacking -->
-    <p>Attacking</p>
-    <input type="checkbox" id="q-11" name="" value="">
-    <input type="checkbox" id="q-12" name="" value="">
-    <p id="attacking-pct">0%</p>
+          <!-- Labeling -->
+          <p>Labeling</p>
+          <input type="checkbox" id="q-9" name="" value="">
+          <input type="checkbox" id="q-10" name="" value="">
+          <p id="labeling-pct">0%</p>
 
-    <!-- STATE my path -->
-    <p>STATE my path</p>
-    <input type="checkbox" id="q-17" name="" value="">
-    <input type="checkbox" id="q-23" name="" value="">
-    <input type="checkbox" id="q-29" name="" value="">
-    <p id="state-pct">0%</p>
+          <!-- Attacking -->
+          <p>Attacking</p>
+          <input type="checkbox" id="q-11" name="" value="">
+          <input type="checkbox" id="q-12" name="" value="">
+          <p id="attacking-pct">0%</p>
 
-    <!-- Explore Others' Paths -->
-    <p>Explore Others' Paths</p>
-    <input type="checkbox" id="q-18" name="" value="">
-    <input type="checkbox" id="q-24" name="" value="">
-    <input type="checkbox" id="q-30" name="" value="">
-    <p id="explore-pct">0%</p>
+          <!-- STATE my path -->
+          <p>STATE my path</p>
+          <input type="checkbox" id="q-17" name="" value="">
+          <input type="checkbox" id="q-23" name="" value="">
+          <input type="checkbox" id="q-29" name="" value="">
+          <p id="state-pct">0%</p>
 
-    <!-- Move to action -->
-    <p>Move to action</p>
-    <input type="checkbox" id="q-31" name="" value="">
-    <input type="checkbox" id="q-32" name="" value="">
-    <input type="checkbox" id="q-33" name="" value="">
-    <p id="action-pct">0%</p>
+          <!-- Explore Others' Paths -->
+          <p>Explore Others' Paths</p>
+          <input type="checkbox" id="q-18" name="" value="">
+          <input type="checkbox" id="q-24" name="" value="">
+          <input type="checkbox" id="q-30" name="" value="">
+          <p id="explore-pct">0%</p>
 
+          <!-- Move to action -->
+          <p>Move to action</p>
+          <input type="checkbox" id="q-31" name="" value="">
+          <input type="checkbox" id="q-32" name="" value="">
+          <input type="checkbox" id="q-33" name="" value="">
+          <p id="action-pct">0%</p>
 
+        </div>
+      </div>
+    </div>
     <!-- END -->
 
     <!-- COPYRIGHT -->

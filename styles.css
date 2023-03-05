@@ -28,13 +28,21 @@ header{
 
 .result-card{
  width: 18rem;
- 
+}
+
+#result-card{
+ display: none;
 }
 
 
 #begin-button{
     padding: 2rem;
     font-size: 33px;
+}
+
+#list-of-answers{
+    display : none;
+
 }
 
 #true-button{

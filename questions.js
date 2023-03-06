@@ -23,7 +23,13 @@ var action_pct=0;
 
 
 
-//
+/**
+ * 
+ * Fucntion called when the quiz begins
+ * Hides the vbegin button and reveals the 1st Q
+ * and TRUE and FALSE buttons
+ * 
+ */
 function startQuiz() {
   //HIDE begin button
   document.getElementById("begin-button").style.display = "none";
@@ -120,21 +126,62 @@ function endQuiz() {
   //Display end of quiz message
   document.getElementById("question-number").innerHTML ="End of quiz";
   document.getElementById("question-text").innerHTML =  "Please see your results below:"
+  
+  
+  //show the scores calculated
+  calculateResults();
 
   //Display results panel
   document.getElementById("result-card").style.display = "block";
 
 
+
 }
 
 // 
-function showResults() {
-  document.getElementById("results-panel").style.display = "none";
+function calculateResults() {
+
+  //show results
+  document.getElementById("result-card").style.display = "block";
   
-  document.getElementById("look-" + "pct").innerHTML = look_pct+"%";
+  //7 silence categories
+  document.getElementById("masking-pct").innerHTML = calculatePCT("masking");
+  document.getElementById("avoiding-pct").innerHTML = calculatePCT('avoiding');
+  document.getElementById("withdrawing-pct").innerHTML = calculatePCT('withdrawing');
+  document.getElementById("heart-pct").innerHTML = calculatePCT('heart');
+  document.getElementById("look-pct").innerHTML = calculatePCT('look');
+  document.getElementById("safe-pct").innerHTML = calculatePCT('safe');
+  document.getElementById("stories-pct").innerHTML = calculatePCT('stories');
+
+
+  //6 viloence categories
+  document.getElementById("controlling-pct").innerHTML = calculatePCT('controlling');
+  document.getElementById("labeling-pct").innerHTML = calculatePCT('labeling');
+  document.getElementById("attacking-pct").innerHTML = calculatePCT('attacking');
+  document.getElementById("state-pct").innerHTML = calculatePCT('state');
+  document.getElementById("explore-pct").innerHTML = calculatePCT('explore');
+  document.getElementById("action-pct").innerHTML = calculatePCT('action');
 
 
 }
+
+function calculatePCT(category){
+
+  //finding the div given the category
+  const div = document.getElementById(category+"-div");
+
+  //count of checked in the given category
+  const count = div.querySelectorAll("input[checked]").length;
+  const total = div.querySelectorAll("input").length;
+
+  //calculate percent of checked boxes
+  var pct = (count/total) * 100;
+
+  //RETURNS SCORE FOR GIVEN CATEGORY
+  return pct+"%";
+}
+
+
 
 const questions = [
   "At times I avoid situations that might bring me into contact with people I'm having problems with.",

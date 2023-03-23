@@ -47,6 +47,11 @@ function startQuiz() {
 
   //first question
   setQuestionText();
+
+
+
+  //DEBUG:
+  console.log(calculatePCT('masking'));
 }
 
 /**
@@ -134,8 +139,6 @@ function endQuiz() {
   //Display results panel
   document.getElementById("result-card").style.display = "block";
 
-
-
 }
 
 // 
@@ -162,7 +165,6 @@ function calculateResults() {
   document.getElementById("explore-pct").innerHTML = calculatePCT('explore');
   document.getElementById("action-pct").innerHTML = calculatePCT('action');
 
-
 }
 
 function calculatePCT(category){
@@ -171,15 +173,47 @@ function calculatePCT(category){
   const div = document.getElementById(category+"-div");
 
   //count of checked in the given category
-  const count = div.querySelectorAll("input[checked]").length;
+  const count = document.querySelectorAll("div.input[checked]").length;
   const total = div.querySelectorAll("input").length;
+
+  //Debug
+  console.log('count: '+count);
+  console.log('total: '+total);
+
 
   //calculate percent of checked boxes
   var pct = (count/total) * 100;
 
   //RETURNS SCORE FOR GIVEN CATEGORY
+
+  //DEBUG: log result
+  console.log(pct+"%");
+
+
   return pct+"%";
 }
+
+/**
+ * 
+ * Event listener to all input elements and listens for the "change" event.
+ * When an input is checked or unchecked, it sets or removes the 
+ * checked attribute accordingly. It then calls the calculatePCT() function 
+ * with the category of the input's parent element (based on the element's ID), 
+ * which should recalculate the percent and update the UI.
+ * 
+ * (Listens for "change" event on all input elements)
+ */
+const inputs = document.querySelectorAll("input");
+inputs.forEach(input => {
+  input.addEventListener("change", function() {
+    if (this.checked) {
+      this.setAttribute("checked", true);
+    } else {
+      this.removeAttribute("checked");
+    }
+    calculatePCT(this.parentElement.id.split("-")[0]); // Recalculate percent
+  });
+});
 
 
 
@@ -223,3 +257,5 @@ const questions = [
 
 // Show length in log
 console.log(questions.length);
+
+

@@ -95,8 +95,14 @@ function setQuestionText() {
 
 //
 function pressTrue() {
-  answeredTrue.push(currentQuestion);
 
+  //push into list
+  answeredTrue.push(currentQuestion);
+  
+  //Jquery
+  answeredTrue.forEach(setCheckboxValueChecked);
+
+  //this method doest work
   document.getElementById("q-"+currentQuestion).checked = true;
 
   //Checkbox marked
@@ -115,6 +121,14 @@ function pressTrue() {
 function pressFalse() {
   setQuestionText();
 }
+
+//JQuery setting checkbox
+function setCheckboxValueChecked(id) {
+  $('#' + id).prop('checked', true);
+}
+
+// Other jQuery functions or code can be included here
+
 
 /**
  * 
@@ -167,31 +181,38 @@ function calculateResults() {
 
 }
 
-function calculatePCT(category){
+/**
+ * 
+ * 
+ * 
+ * 
+ * 
+ * @param {*} category 
+ * @returns 
+ */
+function calculatePCT(category) {
+  // finding the div given the category using jQuery
+  const $div = $('#' + category + '-div');
 
-  //finding the div given the category
-  const div = document.getElementById(category+"-div");
+  // count of checked inputs in the given category
+  const count = $div.find('input:checked').length;
+  const total = $div.find('input').length;
 
-  //count of checked in the given category
-  const count = document.querySelectorAll("div.input[checked]").length;
-  const total = div.querySelectorAll("input").length;
+  // Debug
+  console.log('count: ' + count);
+  console.log('total: ' + total);
 
-  //Debug
-  console.log('count: '+count);
-  console.log('total: '+total);
+  // calculate percent of checked boxes
+  var pct = (count / total) * 100;
 
+  // RETURNS SCORE FOR GIVEN CATEGORY
 
-  //calculate percent of checked boxes
-  var pct = (count/total) * 100;
+  // Debug: log result
+  console.log(pct + '%');
 
-  //RETURNS SCORE FOR GIVEN CATEGORY
-
-  //DEBUG: log result
-  console.log(pct+"%");
-
-
-  return pct+"%";
+  return pct + '%';
 }
+
 
 /**
  * 

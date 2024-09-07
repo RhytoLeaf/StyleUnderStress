@@ -127,7 +127,9 @@ function setCheckboxValueChecked(id) {
   $('#' + id).prop('checked', true);
 }
 
-// Other jQuery functions or code can be included here
+function endQuestion(id){
+  $('#' + id).prop('disabled', true);
+}
 
 
 /**
@@ -210,7 +212,18 @@ function calculatePCT(category) {
   // Debug: log result
   console.log(pct + '%');
 
-  return pct + '%';
+  if(pct < 33){
+    return 'Unlikely';
+  }
+  if(pct >33.3 && pct < 66 ){
+    return 'Rarely';
+  }
+  if(pct >66 ){
+    return 'More Likely';
+  }
+  else{
+    return pct + '%';
+  }
 }
 
 

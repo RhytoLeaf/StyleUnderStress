@@ -212,13 +212,10 @@ function calculatePCT(category) {
   // Debug: log result
   console.log(pct + '%');
 
-  if(pct < 33){
+  if(pct < 34){
     return 'Unlikely';
   }
-  if(pct >33.3 && pct < 66 ){
-    return 'Rarely';
-  }
-  if(pct >66 ){
+  if(pct >=50 ){
     return 'More Likely';
   }
   else{

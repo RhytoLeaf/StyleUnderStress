@@ -151,7 +151,7 @@ function endQuiz() {
   calculateResults();
 
   //Display results panel
-  document.getElementById("result-card").style.display = "block";
+  document.getElementById("result-card-container").style.display = "block";
 
 }
 
@@ -159,7 +159,7 @@ function endQuiz() {
 function calculateResults() {
 
   //show results
-  document.getElementById("result-card").style.display = "block";
+  document.getElementById("result-card-container").style.display = "block";
   
   //7 silence categories
   document.getElementById("masking-pct").innerHTML = calculatePCT("masking");

@@ -216,7 +216,7 @@ function calculatePCT(category) {
     return 'Unlikely';
   }
   if(pct >=50 ){
-    return 'More Likely';
+    return 'Fairly often';
   }
   else{
     return pct + '%';

@@ -36,12 +36,18 @@
   <div class="container-xxl">
     <!-- TITLE -->
     <header>
-      <h1>Style Under Stress</h1>
-
-
+      
+      
     </header>
 
-    <!-- QUESTION PANEL -->
+    <!-- MAIN HEADER FOR QUIZ -->
+    <h1 style="padding: 2.2rem;">Style Under Stress</h1>
+
+
+
+
+
+    <!-- QUIZ PANEL -->
     <div class="col-xl-8">
       <br />
 
@@ -52,22 +58,18 @@
       <br><br><br><br>
 
 
-      <!--  -->
+      <!-- QUESTION TEXT  -->
       <p id="question-text">
         Welcome, press "Begin" to start the quiz.
         <br>
         (33 Questions)
       </p>
-      <!--  -->
-      <!-- SAMPLE -->
+
+
       <div class="container-xxl bd-gutter">
         <div class="row">
 
-
-
-
-
-          <!--  -->
+          <!-- ANSWER BOARD (TRUE OR FALSE) -->
           <div class="d-flex flex-column flex-md-row gap-3">
 
             <a class="btn btn-lg bd-btn-lg" id="true-button" style="display: none" onclick="pressTrue()">
@@ -77,7 +79,6 @@
             <a class="btn btn-lg bd-btn-lg" id="false-button" style="display: none" onclick="pressFalse()">
               False
             </a>
-
           </div>
 
         </div>
@@ -120,8 +121,8 @@
 
     <!-------------------------------------------------->
     <!-------------------------------------------------->
-    <!-- LIST OF ANSWERED TRUE (MEANT FOR DEBUGGING) -->
-    <div id="list-of-answers">
+    <!-- LIST OF ANSWERED TRUE (MEANT FOR DEBUGGING) (toggle style="display:?;") -->
+    <div id="list-of-answers" style="display:none;">
       <h4>Answered True</h4>
       <p id="answered-true">[ ]</p>
     </div>
@@ -153,10 +154,14 @@
 
 
 
+      <!-- Boostrap row object that will contain 2 col-sm objects -->
       <div class=" row ">
+
+
+
+        <!---------------------- SILENCE ----------------------->
         <div class="col-sm text-center">
           <h3>Silence</h3>
-          <!---------------------- SILENCE ----------------------->
           <div class="card result-card flex-grow-1 mr-2">
 
 
@@ -247,6 +252,7 @@
           </div>
 
         </div>
+
 
         <!----------------- VIOLENCE ------------------->
         <div class="col-sm text-center">
@@ -355,15 +361,17 @@
           <p class="col-md-8 fs-4">
 
             <div id="meaning">
-              <p>Your silence and violence scores give you a measure of how frequently you fall into these
-                less-than-perfect
-                strategies.</p>
+
+
+              <p>Your silence and violence scores give you a measure of <br>
+                how frequently you fall into these less-than-perfect strategies.</p>
 
               <h3>It's actually possible to score high in both.</h3>
-              <p>A high score (one or two checked boxes per domain) means you use this technique fairly often. It also
-                means
-                you're human.</p>
-              <p style="color: red;">Most people toggle between holding back and becoming too forceful.</p>
+              <p>A high score (one or two checked boxes per domain) <br>
+                means you use this technique fairly often</p>
+
+              <p style="color: red;">Most people toggle between <br>
+                holding back and becoming too forceful.</p>
 
               <h3>If you score high (two or more domains)</h3>
               <p>You're already quite skilled in this area.</p>

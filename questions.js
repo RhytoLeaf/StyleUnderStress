@@ -39,7 +39,7 @@ function startQuiz() {
   document.getElementById("false-button").style.display = "block";
 
   //list of answered true (DEBUG)
-  document.getElementById("list-of-answers").style.display = "block";
+  document.getElementById("list-of-answers").style.display = "none";
 
 
 

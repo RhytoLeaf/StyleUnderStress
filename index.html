@@ -36,8 +36,8 @@
   <div class="container-xxl">
     <!-- TITLE -->
     <header>
-      
-      
+
+
     </header>
 
     <!-- MAIN HEADER FOR QUIZ -->
@@ -58,13 +58,20 @@
       <br><br><br><br>
 
 
-      <!-- QUESTION TEXT  -->
-      <p id="question-text">
-        Welcome, press "Begin" to start the quiz.
-        <br>
-        (33 Questions)
-      </p>
+      <div class="card" style="background-color:#F2F2F2; padding: 2rem;">
 
+
+        <!-- QUESTION TEXT  -->
+        <p id="question-text">
+          Welcome! <br>Please press "Begin" to start the quiz.
+          <br>
+          (34 Questions)
+        </p>
+
+      </div>
+
+
+      <br>
 
       <div class="container-xxl bd-gutter">
         <div class="row">
@@ -92,6 +99,8 @@
 
 
 
+    <br>
+
     <!---------------------------------------------- 
     BEGIN
 
@@ -105,18 +114,15 @@
       </div>
     </div>
 
-    <div id="question-board">
-      <!-- Quiz Progress -->
-      <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="100" aria-valuemin="0"
-        aria-valuemax="100">
-        <div id="quiz-progress" class="progress-bar" style="width: 0%"></div>
-      </div>
+
+    <!-- QUESTIONS DISPLAY HERE -->
+    <div id="question-board" style="width: 50%; ">
 
       <br />
 
-
-
     </div>
+
+
 
 
     <!-------------------------------------------------->
@@ -128,11 +134,17 @@
     </div>
 
 
+    <!-- QUIZ PROGRESS BAR-->
+    <div class="progress" style="width: 60%; height:30px" role="progressbar" aria-label="Basic example"
+      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+      <div id="quiz-progress" class="progress-bar" style="background-color:#00CE7C;"></div>
+
+    </div>
 
 
 
 
-
+    <br><br><br>
 
     <!-------------------------------------------------->
     <!-------------------------------------------------->
@@ -155,7 +167,7 @@
 
 
       <!-- Boostrap row object that will contain 2 col-sm objects -->
-      <div class=" row ">
+      <div class=" row">
 
         <!-- Explaining results -->
         <div>
@@ -165,8 +177,12 @@
 
 
 
+        <br>
+        <br>
+  
+
         <!---------------------- SILENCE ----------------------->
-        <div class="col-sm text-center">
+        <div class="col-sm text-center d-flex flex-column align-items-center">
           <h3>Silence</h3>
           <div class="card result-card flex-grow-1 mr-2">
 
@@ -261,7 +277,7 @@
 
 
         <!----------------- VIOLENCE ------------------->
-        <div class="col-sm text-center">
+        <div class="col-sm text-center d-flex flex-column align-items-center">
           <h3>Violence</h3>
 
           <div class="card result-card flex-grow-1 ml-2">
@@ -354,7 +370,7 @@
 
       </div>
 
-<br><br><br><br>
+      <br><br><br><br>
 
 
       <!------------------------------------>

@@ -77,7 +77,7 @@ function setQuestionText() {
 
   //update quiz progress bar
   document.getElementById("quiz-progress").style.width =
-    (currentQuestion / 33) * 100 + "%";
+    ((currentQuestion-1) / 33) * 100 + "%";
 
     //update trues
     setAnsweredTrueText();
@@ -247,7 +247,7 @@ inputs.forEach(input => {
 });
 
 
-
+//34 questions
 const questions = [
   "At times I avoid situations that might bring me into contact with people I'm having problems with.",
   "I have put off returning phone calls or emails because I simply didn't want to deal with the person who sent them.",

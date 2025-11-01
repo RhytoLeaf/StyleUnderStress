@@ -152,6 +152,55 @@
         text-decoration: none;
         cursor: pointer;
       }
+    body.dark-mode {
+      background-color: #212121 !important;
+      color: #f2f2f2 !important;
+    }
+
+    body.dark-mode .card {
+      background-color: #333333 !important;
+      color: #f2f2f2 !important;
+    }
+
+    body.dark-mode h1, body.dark-mode h2, body.dark-mode p, body.dark-mode a, body.dark-mode button {
+      color: #f2f2f2 !important;
+    }
+
+    body.dark-mode .grid-button {
+      background-color: #555555 !important;
+      color: #f2f2f2 !important;
+      border: 1px solid #777777 !important;
+    }
+
+    body.dark-mode .grid-button.true {
+      background-color: rgb(0, 150, 147) !important;
+    }
+
+    body.dark-mode .grid-button.false {
+      background-color: rgb(150, 20, 60) !important;
+    }
+
+    body.dark-mode .modal-content {
+      background-color: #333333 !important;
+      color: #f2f2f2 !important;
+      border: 1px solid #555555 !important;
+    }
+
+    body.dark-mode .close-button {
+      color: #f2f2f2 !important;
+    }
+    #darkModeIcon {
+      font-size: 2em; /* Double the size */
+    }
+    .form-check-input:checked {
+      background-color: darkblue !important;
+      border-color: darkblue !important;
+    }
+
+    .form-check-input:not(:checked) {
+      background-color: orange !important;
+      border-color: orange !important;
+    }
   </style>
 
   <!-- Bootstrap -->
@@ -193,6 +242,14 @@
 
     <div id="question-grid" class="d-flex flex-wrap justify-content-center"></div>
 
+    <div class="d-flex flex-column align-items-center my-3">
+      <i id="darkModeIcon" class="fas fa-moon mb-2"></i>
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="darkModeToggle">
+        <label class="form-check-label" for="darkModeToggle"></label>
+      </div>
+    </div>
+
 
 
 
@@ -202,6 +259,7 @@
       <br />
 
       <!--  -->
+      <hr id="question-hr" style="display: none;">
       <h2 id="question-number" class="bd-title"></h2>
 
 
@@ -540,10 +598,10 @@
 
         <br><br>
 
-        <h2>What next? Now that you've identified your own Style Under Stress</h2>
         <p>We have a tool that can help you:</p>
         <p><a href="https://www.amazon.ca/Crucial-Conversations-Talking-Stakes-Second/dp/0071771328">Crucial
             Conversations</a></p>
+
 
        <!------------------------------------>
       <!------------------------------------>
@@ -573,10 +631,10 @@
 
 
 
-    <!-- COPYRIGHT -->
-    <p style=" padding: 1rem; text-align: center;">
-      Copyright &copy; <span id="current-year"></span> RhytoLeaf Inc. All Rights Reserved.
-    </p>
+
+
+
+
 
     <div id="info-modal" class="modal">
       <div class="modal-content">
@@ -683,6 +741,12 @@
     });
   });
 </script>
+
+  <footer>
+    <p>Inspired by Crucial Conversation's various authors</p>
+    <br>
+    <p>&copy; <span id="current-year"></span> RhytoLeaf Inc. All Rights Reserved</p>
+  </footer>
 
 <script>
   document.getElementById("current-year").textContent = new Date().getFullYear();
@@ -809,5 +873,40 @@
     if (event.target == modal) {
       modal.style.display = "none";
     }
+  });
+</script>
+
+<script>
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  const body = document.body;
+  const darkModeIcon = document.getElementById('darkModeIcon');
+
+  // Function to set the icon based on dark mode state
+  function setDarkModeIcon() {
+    if (body.classList.contains('dark-mode')) {
+      darkModeIcon.classList.remove('fa-moon');
+      darkModeIcon.classList.add('fa-sun');
+    } else {
+      darkModeIcon.classList.remove('fa-sun');
+      darkModeIcon.classList.add('fa-moon');
+    }
+  }
+
+  // Check for user's preferred mode in localStorage
+  if (localStorage.getItem('darkMode') === 'enabled') {
+    body.classList.add('dark-mode');
+    darkModeToggle.checked = true;
+  }
+  setDarkModeIcon(); // Set initial icon
+
+  darkModeToggle.addEventListener('change', () => {
+    if (darkModeToggle.checked) {
+      body.classList.add('dark-mode');
+      localStorage.setItem('darkMode', 'enabled');
+    } else {
+      body.classList.remove('dark-mode');
+      localStorage.setItem('darkMode', 'disabled');
+    }
+    setDarkModeIcon(); // Update icon after change
   });
 </script>

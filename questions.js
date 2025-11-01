@@ -39,8 +39,9 @@ function startQuiz() {
   document.getElementById("true-button").style.display = "block";
   document.getElementById("false-button").style.display = "block";
 
-  //list of answered true (DEBUG)
-  document.getElementById("list-of-answers").style.display = "none";
+
+  // Show the question HR
+  document.getElementById("question-hr").style.display = "block";
 
   // Generate the question grid
   const gridContainer = document.getElementById("question-grid");
@@ -189,8 +190,7 @@ function endQuiz() {
   document.getElementById("true-button").style.display = "none";
   document.getElementById("false-button").style.display = "none";
 
-  //Display end of quiz message
-  document.getElementById("question-number").innerHTML ="End of quiz";
+  document.getElementById("question-hr").style.display = "none";
   document.getElementById("question-text").innerHTML =  "Please see your results below:"
   
   

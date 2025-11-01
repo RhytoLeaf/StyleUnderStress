@@ -753,17 +753,13 @@ function setQuestionText() {
     //update trues
     setAnsweredTrueText();
 
-  if (currentQuestion > 33) {
-    endQuiz();
-  } else {
-    document.getElementById("question-text").innerHTML =
-      questions[currentQuestion - 1];
+  // setQuestionText should only display the current question, not end the quiz
+  document.getElementById("question-text").innerHTML =
+    questions[currentQuestion - 1];
 
-    document.getElementById("question-number").innerHTML = 
-      'Question '+currentQuestion;
-  }
+  document.getElementById("question-number").innerHTML =
+    'Question '+currentQuestion;
 }
-
 //
 function pressTrue() {
   questionStatus[currentQuestion - 1] = 1;
@@ -819,8 +815,9 @@ function findNextQuestion() {
   if (nextQuestion === -1) {
     // All questions answered, update progress bar one last time
     const answeredQuestions = questionStatus.filter(status => status !== 0).length;
-    document.getElementById("quiz-progress").style.width =
-      (answeredQuestions / 33) * 100 + "%";
+    const percentage = (answeredQuestions / 33) * 100;
+    document.getElementById("quiz-progress").style.width = percentage + "%";
+    document.getElementById("quiz-progress-text").textContent = Math.round(percentage) + "%";
     endQuiz();
   } else {
     currentQuestion = nextQuestion + 1;

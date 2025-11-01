@@ -1,6 +1,7 @@
 var answeredTrue = [];
 var answeredFalse = [];
 var currentQuestion = 0;
+var questionStatus = new Array(33).fill(0); // 0 for unanswered, 1 for true, 2 for false
 
 
 //TEST RESULT PERCENTAGES
@@ -41,11 +42,21 @@ function startQuiz() {
   //list of answered true (DEBUG)
   document.getElementById("list-of-answers").style.display = "none";
 
-
+  // Generate the question grid
+  const gridContainer = document.getElementById("question-grid");
+  for (let i = 1; i <= 33; i++) {
+    const button = document.createElement("button");
+    button.innerHTML = i;
+    button.id = `grid-btn-${i}`;
+    button.classList.add("grid-button");
+    button.addEventListener("click", () => jumpToQuestion(i));
+    gridContainer.appendChild(button);
+  }
 
   //progress bar style style="width: 100%"
 
   //first question
+  currentQuestion = 1;
   setQuestionText();
 
 
@@ -73,11 +84,10 @@ function setAnsweredTrueText() {
  * 
  */
 function setQuestionText() {
-  currentQuestion++;
-
   //update quiz progress bar
+  const answeredQuestions = questionStatus.filter(status => status !== 0).length;
   document.getElementById("quiz-progress").style.width =
-    ((currentQuestion-1) / 33) * 100 + "%";
+    (answeredQuestions / 33) * 100 + "%";
 
     //update trues
     setAnsweredTrueText();
@@ -95,9 +105,14 @@ function setQuestionText() {
 
 //
 function pressTrue() {
+  questionStatus[currentQuestion - 1] = 1;
+  document.getElementById(`grid-btn-${currentQuestion}`).classList.add('true');
+  document.getElementById(`grid-btn-${currentQuestion}`).classList.remove('false');
 
   //push into list
-  answeredTrue.push(currentQuestion);
+  if (!answeredTrue.includes(currentQuestion)) {
+    answeredTrue.push(currentQuestion);
+  }
   
   //Jquery
   answeredTrue.forEach(setCheckboxValueChecked);
@@ -108,7 +123,7 @@ function pressTrue() {
   //Checkbox marked
   //document.getElementById("Q" + currentQuestion + "-answer").checked = true;
 
-  setQuestionText();
+  findNextQuestion();
 }
 
 /**
@@ -119,7 +134,37 @@ function pressTrue() {
  * 
  */ 
 function pressFalse() {
+  questionStatus[currentQuestion - 1] = 2;
+  document.getElementById(`grid-btn-${currentQuestion}`).classList.add('false');
+  document.getElementById(`grid-btn-${currentQuestion}`).classList.remove('true');
+  
+  //remove from answeredTrue if it exists
+  const index = answeredTrue.indexOf(currentQuestion);
+  if (index > -1) {
+    answeredTrue.splice(index, 1);
+  }
+  document.getElementById("q-"+currentQuestion).checked = false;
+
+  findNextQuestion();
+}
+
+function jumpToQuestion(questionNumber) {
+  currentQuestion = questionNumber;
   setQuestionText();
+}
+
+function findNextQuestion() {
+  let nextQuestion = questionStatus.indexOf(0);
+  if (nextQuestion === -1) {
+    // All questions answered, update progress bar one last time
+    const answeredQuestions = questionStatus.filter(status => status !== 0).length;
+    document.getElementById("quiz-progress").style.width =
+      (answeredQuestions / 33) * 100 + "%";
+    endQuiz();
+  } else {
+    currentQuestion = nextQuestion + 1;
+    setQuestionText();
+  }
 }
 
 //JQuery setting checkbox
@@ -154,6 +199,15 @@ function endQuiz() {
 
   //Display results panel
   document.getElementById("result-card-container").style.display = "block";
+
+  // Disable all checkboxes in the result section
+  const resultCheckboxes = document.querySelectorAll("#result-card-container input[type='checkbox']");
+  resultCheckboxes.forEach(checkbox => {
+    checkbox.disabled = true;
+  });
+
+  // Display the scroll to results button
+  document.getElementById("scroll-to-results").style.display = "block";
 
 }
 
@@ -247,7 +301,7 @@ inputs.forEach(input => {
 });
 
 
-//34 questions
+//33 questions
 const questions = [
   "At times I avoid situations that might bring me into contact with people I'm having problems with.",
   "I have put off returning phone calls or emails because I simply didn't want to deal with the person who sent them.",

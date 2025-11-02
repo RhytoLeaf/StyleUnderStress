@@ -161,6 +161,13 @@
         padding: 20px;
         border: 1px solid #888;
         width: 80%; 
+        text-align: center;
+      }
+
+      .modal-content ul {
+        padding-left: 0;
+        list-style-type: none;
+        text-align: center; /* Center the text within the bullet points */
       }
 
       .close-button {
@@ -302,6 +309,7 @@
     <!-- MAIN HEADER FOR QUIZ -->
     <img src="./images/logo-icon.png" alt="RhytoLeaf Logo" width="50px" style="display: block; margin: 0 auto;">
     <h1 style="padding: 2.2rem; font-size: clamp(2.5rem, 6vw, 4rem);">Style Under Stress</h1>
+    <h3 id="why-benefit-header" style="cursor: pointer; text-decoration: underline;">Why?</h3>
 
     <div id="question-grid" class="d-flex flex-wrap justify-content-center"></div>
 
@@ -707,6 +715,19 @@
         <p id="modal-description"></p>
         <h3>Common Logical Fallacies:</h3>
         <ul id="modal-fallacies"></ul>
+      </div>
+    </div>
+
+    <div id="why-benefit-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Why this quiz can benefit you</h2>
+        <ul>
+          <li>Understand your communication style under stress.</li>
+          <li>Improve relationships and achieve your goals.</li>
+          <li>Make conscious choices for more productive conversations.</li>
+        </ul>
+        <p style="text-align: center; font-weight: bold;">Best of all, it's <span style="color: red;">FREE</span>!</p>
       </div>
     </div>
 
@@ -1315,5 +1336,25 @@ console.log(questions.length);
       localStorage.setItem('darkMode', 'disabled');
     }
     setDarkModeIcon(); // Update icon after change
+  });
+</script>
+
+<script>
+  const whyBenefitModal = document.getElementById("why-benefit-modal");
+  const whyBenefitHeader = document.getElementById("why-benefit-header");
+  const whyBenefitCloseButton = whyBenefitModal.querySelector(".close-button");
+
+  whyBenefitHeader.addEventListener("click", function() {
+    whyBenefitModal.style.display = "block";
+  });
+
+  whyBenefitCloseButton.addEventListener("click", function() {
+    whyBenefitModal.style.display = "none";
+  });
+
+  window.addEventListener("click", function(event) {
+    if (event.target == whyBenefitModal) {
+      whyBenefitModal.style.display = "none";
+    }
   });
 </script>
